@@ -347,7 +347,7 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 <details>
 <summary> 이미지 접기 / 펼치기 </summary>    
 <img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_01.png" width="100%" height="100%"/>  
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_02.png" width="75%" height="75%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_02.png" width="50%" height="75%"/>  
 </details>
 
 
@@ -357,7 +357,7 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 
 <details>
 <summary> 이미지 접기 / 펼치기 </summary>    
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_03.png" width="75%" height="75%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_03.png" width="50%" height="75%"/>  
 </details>
 
 AI가 시야를 통해 적을 감지하고 타겟을 지정할 수 있도록 `AI Perception Component`를 사용했습니다.    
