@@ -343,8 +343,8 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 
 <details>
 <summary> 퀵슬롯 이미지 접기 / 펼치기 </summary>    
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_01.png" width="80%" height="80%"/>  
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_02.png" width="80%" height="80%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_01.png" width="40%" height="40%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_02.png" width="100%" height="100%"/>  
 </details>
 
 퀵슬롯 기능은 여러 타입의 슬롯에 아이템을 등록하고 용도에 따라 처리할 수 있도록 만들었습니다.    
@@ -353,7 +353,7 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 
 <details>
 <summary> 코드 접기 / 펼치기 </summary>    
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_03.png" width="80%" height="80%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_03.png" width="100%" height="100%"/>  
 </details>
 
 퀵슬롯에 아이템을 등록 / 삭제하거나 활성 인덱스에 변화가 생기면 Client로 복제되어 변경사항을 감지하고, 이벤트를 발생시켜 UI를 갱신합니다.
@@ -364,10 +364,45 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 ### 6.2 캐릭터 외형
 <hr>
 
+<details>
+<summary> 이미지 접기 / 펼치기 </summary>    
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_04.png" width="100%" height="100%"/>  
+</details>
+
+외형을 자유롭게 변경하고 애니메이션을 다양한 SkeletalMesh에 적용하기 위해 Skin 기능을 구현했습니다.   
+`ChildActorComponent`를 이용해 메인 캐릭터의 하위 자손으로 추가되고, Retarget을 지원하여 UE4 <-> UE5 스켈레톤이 호환됩니다.
+
 
 <a name="contents_02"></a>
 ### 6.3 상호작용
 <hr>
+
+플레이어와 상호작용이 가능한 물체를 처리하기 위해 공통적인 부분과 그렇지 않은 부분을 나누어 설계했습니다.
+
+**공통 부분**    
+- 주변에 상호작용 가능한 물체가 있는지 스캔
+- 상호작용 가능한 물체에 다가갔을때 상호작용 정보
+
+**비공통 부분**    
+- 상호작용시 물체마다 반응하는 동작(로직)
+- 물체가 상호작용 가능한 상태인지 판단하는 부분
+
+위와 같은 이유로 플레이어의 주변을 스캔하는 행위와, 이를 통해 실행되는 상호작용 동작을 분리했습니다.    
+이 방식에서는 새로운 상호작용이 필요한 물체가 추가되더라도 해당 물체에 맞는 `Ability`만 추가하면 되므로 확장이 용이했습니다.
+
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_05.png" width="100%" height="100%"/>  
+
+- `InteractionAbility`는 어빌리티가 부여되는 시점에 실행
+- `AbilityTask(ScanNearActor Task)`를 이용해 주변의 물체를 감지하고, 변경된 경우 이벤트 발생
+- 발생한 이벤트를 활용해 `Client`는 상호작용 UI를 표시하고 `Server`에서는 각각 물체가 가진 `Ability`를 부여
+- 상호작용 키를 누르면 부여받은 `Ability`가 실행됨
+
+<details>
+<summary> 이미지 접기 / 펼치기 </summary>    
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_06.png" width="100%" height="100%"/>  
+</details>
+
+상호작용이 가능한 물체임을 판단할 때에는 다른 타입을 가진 `Actor`에도 적용할 수 있도록 `Interface`를 활용했습니다.
 
 
 <a name="contents_03"></a>
