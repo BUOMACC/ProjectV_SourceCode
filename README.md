@@ -335,6 +335,52 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 
 
 
+<a name="contents"></a>
+## 6. 기능 구현
+<a name="contents_01"></a>
+### 6.1 퀵 슬롯
+<hr>
+
+<details>
+<summary> 퀵슬롯 이미지 접기 / 펼치기 </summary>    
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_01.png" width="80%" height="80%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_02.png" width="80%" height="80%"/>  
+</details>
+
+퀵슬롯 기능은 여러 타입의 슬롯에 아이템을 등록하고 용도에 따라 처리할 수 있도록 만들었습니다.    
+빠르게 타입을 추가할 수 있도록 Component의 Detail 패널을 통해 시작시 등록할 퀵슬롯 타입(`FRegisteredQuickSlotInfo`)을 지정할 수 있습니다.    
+등록된 퀵슬롯은 `FQuickSlot` 구조체로 저장되어 어떤 아이템을 들고 있는지, 어떤 인덱스가 활성화 되어 있는지 정보를 가집니다.
+
+<details>
+<summary> 코드 접기 / 펼치기 </summary>    
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_03.png" width="80%" height="80%"/>  
+</details>
+
+퀵슬롯에 아이템을 등록 / 삭제하거나 활성 인덱스에 변화가 생기면 Client로 복제되어 변경사항을 감지하고, 이벤트를 발생시켜 UI를 갱신합니다.
+
+
+
+<a name="contents_01"></a>
+### 6.2 캐릭터 외형
+<hr>
+
+
+<a name="contents_02"></a>
+### 6.3 상호작용
+<hr>
+
+
+<a name="contents_03"></a>
+### 6.4 치명적인 일격(DeathBlow)
+<hr>
+
+
+
+[목차로 이동](#table-contents)
+
+
+
+
 <a name="ai"></a>
 ## 7. AI 처리
 <a name="ai_01"></a>
