@@ -161,9 +161,9 @@ if (bAllowPhysicsRotationDuringAnimRootMotion || !HasAnimRootMotion())
 
 <details>
 <summary> 코드 접기 / 펼치기 </summary>
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_02.png" width="75%" height="100%"/>
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_02.png" width="75%" height="75%"/>
 <img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_03.png" width="100%" height="100%"/>
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_04.png" width="85%" height="100%"/>
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_04.png" width="85%" height="85%"/>
 </details>
 
 회전 방향(DesiredTargetRotation)과 회전량(RotateSpeedPerSec), Flag를 서버와 클라이언트에서 각자 설정하고  
@@ -194,7 +194,7 @@ Flag 값을 Server / Client 각각 설정하여 서버의 Flag 값이 늦게 비
 <details>
 <summary> 코드 접기 / 펼치기 </summary>
 <img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_06.png" width="100%" height="100%"/>
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_07.png" width="75%" height="100%"/>
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_07.png" width="75%" height="75%"/>
 </details>
 
 CMC에서 Client -> Server로 상태값을 전달하기 위해 사용되는 FSavedMove와 FNetworkPrediction_Client를 상속받고  
@@ -222,7 +222,7 @@ CMC에서 Client -> Server로 상태값을 전달하기 위해 사용되는 FSav
 
 <details>
 <summary> 코드 접기 / 펼치기 </summary>
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_08.png" width="75%" height="100%"/>
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_08.png" width="75%" height="75%"/>
 <img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/CMC_09.png" width="100%" height="100%"/>
 </details>
 
@@ -235,5 +235,28 @@ CMC에서 Client -> Server로 상태값을 전달하기 위해 사용되는 FSav
 Flag 및 목표 회전이 Client에 의해 동기화되고 서버에서 이를 검증하기 때문에 모든 동작이 정상적으로 잘 동작했습니다.    
 높은 지연시간에도 RootMotion 도중 어느 방향으로 회전할지 실시간으로 설정할 수 있으며 정상적인 상황의 경우 보정이 발생하지 않았습니다.
 
+
+<a name="animation"></a>
+## 8. 애니메이션
+<a name="animation_01"></a>
+### 8.1 플레이어 & 적 애니메이션 처리
+<hr>
+캐릭터의 애니메이션을 `Base Anim BP`를 상속받아 처리하고자 했으나 불필요한 트랜지션까지 공유해야 하는 문제가 있었습니다.    
+
+- 적 캐릭터의 경우 일반 상태와 전투 상태의 애니메이션이 다른 경우    
+> 만약 일반 상태가 필요하지 않은 적이 있다면..? -> 불필요한 일반 상태의 트랜지션을 갖게된다.   
+
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Animation_01.png" width="50%" height="50%"/>
+
+위와같은 문제를 해결하기 위해 `Linked Anim Layer`를 활용했으며 상태들을 공통 트랜지션으로 병합할 수 있었습니다.    
+
+또한 `Linked Anim Layer`가 변경되더라도 현재의 `Base State Machine`은 그대로 동작하고 있기 때문에 상태 변화에 자연스러운 연결이 가능했습니다.    
+
+> Montage Slot이 그대로 동작하고 있으므로 그 사이에 Layer를 변경하는 것으로 자연스럽게 연결됨
+
+<details>
+<summary> 이미지 접기 / 펼치기 </summary>
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Animation_02.png" width="75%" height="75%"/>
+</details>
 
 
