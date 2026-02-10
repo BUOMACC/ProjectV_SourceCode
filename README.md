@@ -334,6 +334,54 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 [목차로 이동](#table-contents)
 
 
+
+<a name="ai"></a>
+## 7. AI 처리
+<a name="ai_01"></a>
+### 7.1 몬스터 스포너
+<hr>
+
+맵에 원하는 몬스터를 규칙에 맞게 스폰할 수 있도록 스포너를 구현했습니다.    
+어떤 몬스터가 스폰될지 가중치를 설정하거나 어떤 스팟에 스폰될지 설정할 수 있습니다.
+
+<details>
+<summary> 이미지 접기 / 펼치기 </summary>    
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_01.png" width="100%" height="100%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_02.png" width="75%" height="75%"/>  
+</details>
+
+
+<a name="ai_02"></a>
+### 7.2 AI Perception
+<hr>
+
+<details>
+<summary> 이미지 접기 / 펼치기 </summary>    
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_03.png" width="75%" height="75%"/>  
+</details>
+
+AI가 시야를 통해 적을 감지하고 타겟을 지정할 수 있도록 `AI Perception Component`를 사용했습니다.    
+그 밖에도 소리를 들었을때 발생한 Noise를 감지하거나 데미지를 받은 경우 어그로를 변경하도록 구현했습니다.    
+
+위와 같은 동작에는 `Blackboard`의 `SenseValue(float)` 및 `LastSenseActor(Actor)`값 두개의 변수로 제어됩니다.    
+- 감각 신호가 오면 `SenseValue`가 증가하고 `LastSenseActor`를 감각을 준 대상으로 지정합니다.    
+- `SenseValue`가 일정 값 이상으로 증가하면 `LastSenseActor`를 `TargetActor`로 확정합니다.    
+
+<a name="ai_03"></a>
+### 7.3 Behavior Tree
+<hr>
+
+<details>
+<summary> 이미지 접기 / 펼치기 </summary>    
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/AI_04.png" width="100%" height="100%"/>  
+</details>
+
+AI의 동작에는 `BehaviorTree`를 사용했으며 몬스터가 현재 어떤 상태인지에 따라 처리되도록 작업했습니다. (ex: 피격, 전투, 순찰..)    
+
+
+[목차로 이동](#table-contents)
+
+
 <a name="animation"></a>
 ## 8. 애니메이션
 <a name="animation_01"></a>
