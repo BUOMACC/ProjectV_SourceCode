@@ -366,7 +366,7 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 
 <details>
 <summary> 이미지 접기 / 펼치기 </summary>    
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_04.png" width="100%" height="100%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_04.png" width="80%" height="80%"/>  
 </details>
 
 외형을 자유롭게 변경하고 애니메이션을 다양한 SkeletalMesh에 적용하기 위해 Skin 기능을 구현했습니다.   
@@ -390,7 +390,7 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 위와 같은 이유로 플레이어의 주변을 스캔하는 행위와, 이를 통해 실행되는 상호작용 동작을 분리했습니다.    
 이 방식에서는 새로운 상호작용이 필요한 물체가 추가되더라도 해당 물체에 맞는 `Ability`만 추가하면 되므로 확장이 용이했습니다.
 
-<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_05.png" width="100%" height="100%"/>  
+<img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_05.png" width="80%" height="80%"/>  
 
 - `InteractionAbility`는 어빌리티가 부여되는 시점에 실행
 - `AbilityTask(ScanNearActor Task)`를 이용해 주변의 물체를 감지하고, 변경된 경우 이벤트 발생
@@ -408,6 +408,15 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 <a name="contents_03"></a>
 ### 6.4 치명적인 일격(DeathBlow)
 <hr>
+
+적을 마무리할 수 있는 치명적인 공격 시스템을 구현했습니다.    
+여러 명의 적이 겹쳐 있는 상황에서 마무리 일격을 가할 대상을 선택하는 것은 플레이어의 몫이므로    
+플레이어를 기준으로 삼아 주변의 적을 스캔하며 아래 단계에 따라 처리하도록 설계했습니다.    
+
+- 스캔된 적이 마무리 일격이 가능한 상태일 경우, `DeathBlow Executor Ability`가 플레이어에게 부여됩니다.
+- 부여된 `Ability`를 실행할 별도의 입력이 필요하므로, `InputMappingContext`도 동적으로 추가됩니다.
+- 부여된 `Ability`가 실행되면, 타겟에게 어떤 무기로 당하는지 나타내는 `Executed Tag`를 전송합니다.
+- 타겟은 이를 수신한 뒤, 실행자의 `Ability`와 짝을 이루는 `DeathBlow Target Ability`가 실행됩니다.
 
 
 
