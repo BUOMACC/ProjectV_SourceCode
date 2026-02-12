@@ -97,7 +97,6 @@ void ACombatCharacter::PostInitializeComponents()
 	Super::PostInitializeComponents();
 
 	// Initialize ASC (Client && Server)
-	// 캐릭터별로 다른 능력치를 가질것이므로 AvatarActor와 OwnerActor를 같게 설정
 	CombatASC->InitAbilityActorInfo(this, this);
 
 	// Bind Events
