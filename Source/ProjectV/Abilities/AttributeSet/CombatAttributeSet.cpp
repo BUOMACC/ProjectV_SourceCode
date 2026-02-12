@@ -28,7 +28,6 @@ void UCombatAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 	DOREPLIFETIME(UCombatAttributeSet, Stamina);
 	DOREPLIFETIME(UCombatAttributeSet, MaxStamina);
-	DOREPLIFETIME(UCombatAttributeSet, GuardAngle);
 	DOREPLIFETIME(UCombatAttributeSet, GroggyGauge);
 	DOREPLIFETIME(UCombatAttributeSet, MaxGroggyGauge);
 }
@@ -124,11 +123,6 @@ void UCombatAttributeSet::OnRep_Stamina(const FGameplayAttributeData& OldValue)
 void UCombatAttributeSet::OnRep_MaxStamina(const FGameplayAttributeData& OldValue)
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UCombatAttributeSet, MaxStamina, OldValue);
-}
-
-void UCombatAttributeSet::OnRep_GuardAngle(const FGameplayAttributeData& OldValue)
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UCombatAttributeSet, GuardAngle, OldValue);
 }
 
 void UCombatAttributeSet::OnRep_GroggyGauge(const FGameplayAttributeData& OldValue)

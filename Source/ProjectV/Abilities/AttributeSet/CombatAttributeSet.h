@@ -90,9 +90,6 @@ private:
 	void OnRep_MaxStamina(const FGameplayAttributeData& OldValue);
 
 	UFUNCTION()
-	void OnRep_GuardAngle(const FGameplayAttributeData& OldValue);
-
-	UFUNCTION()
 	void OnRep_GroggyGauge(const FGameplayAttributeData& OldValue);
 
 	UFUNCTION()
@@ -111,7 +108,7 @@ private:
 	FGameplayAttributeData MaxStamina;
 
 	/* 좌/우 합한 값이 가드가능 각도 */
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_GuardAngle, Category = "Combat Stat", meta = (AllowPrivateAccess = true))
+	UPROPERTY(BlueprintReadOnly, Category = "Combat Stat", meta = (AllowPrivateAccess = true))
 	FGameplayAttributeData GuardAngle;
 
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_GroggyGauge, Category = "Combat Stat", meta = (AllowPrivateAccess = true))
