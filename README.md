@@ -240,6 +240,7 @@ void UHealthAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute
 <hr>
 
 행동 도중 미리 키를 입력해 두면, 지정된 시점에 다음 동작으로 자연스럽게 연계되도록 하는 선입력 기능을 `AnimNotifyState`로 구현했습니다.		
+
 이런 기능은 "키를 눌렀는데 왜 안 나가지?" 같은 플레이 경험을 해결하기 위한 기능이었으며 아래와 같이 동작합니다.	
 - 가장 마지막에 입력된 값이 기록됩니다.
 - 기록된 입력은 지정된 구간에 소모하여 다음 동작으로 연결할 수 있습니다.
