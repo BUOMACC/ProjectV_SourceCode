@@ -410,7 +410,7 @@ Flag 및 목표 회전이 `Client`에 의해 동기화되고 서버에서 이를
 ### 4.1 AbilitySet
 <hr>
 
-`GAS`를 이용하여 개발하면서 다수의 Ability를 부여했을 때 이들을 일괄적으로 회수하는 등 관리할 수단이 필요했고    
+`GAS`를 이용하여 개발하면서 다수의 `Ability`를 부여했을 때 이들을 일괄적으로 회수하는 등 관리할 수단이 필요했고    
 이들을 묶어서 관리할 수 있는 `AbilitySet`을 프로젝트에 도입해서 어느 정도 해결했지만 구조상 고려할 문제가 있었습니다.    
 
 - 장비를 교체할 때 동일한 타입으로 부여된 `AbilitySet`의 `Handle`을 찾을 방법이 필요
@@ -520,7 +520,7 @@ Game Pad에 대한 포커스 지원도 해주기 때문에 배워두면 차후 U
 <img src="https://github.com/BUOMACC/ProjectV_SourceCode/blob/main/Images/Contents_03.png" width="100%" height="100%"/>  
 </details>
 
-퀵슬롯에 아이템을 등록 / 삭제하거나 활성 인덱스에 변화가 생기면 Client로 복제되어 변경사항을 감지하고, 이벤트를 발생시켜 UI를 갱신합니다.
+퀵슬롯에 아이템을 등록 / 삭제하거나 활성 인덱스에 변화가 생기면 `Client`로 복제되어 변경사항을 감지하고, 이벤트를 발생시켜 UI를 갱신합니다.
 
 
 
