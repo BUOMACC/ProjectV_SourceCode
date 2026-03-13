@@ -4,7 +4,6 @@
 #include "CombatHUD.h"
 #include "CommonActivatableWidget.h"
 #include "CombatUILayerWidget.h"
-#include "CombatUILayerWidget.h"
 #include "ProjectVLogs.h"
 
 ACombatHUD::ACombatHUD()
