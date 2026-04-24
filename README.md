@@ -532,7 +532,7 @@ Unreal Engine 5에서 위 구조를 기반으로 처리되는 `Common UI` 플러
 
 
 
-<a name="contents_01"></a>
+<a name="contents_02"></a>
 ### 6.2 캐릭터 외형
 <hr>
 
@@ -545,7 +545,7 @@ Unreal Engine 5에서 위 구조를 기반으로 처리되는 `Common UI` 플러
 `ChildActorComponent`를 이용해 메인 캐릭터의 하위 자손으로 추가되고, Retarget을 지원하여 UE4 <-> UE5 스켈레톤이 호환됩니다.
 
 
-<a name="contents_02"></a>
+<a name="contents_03"></a>
 ### 6.3 상호작용
 <hr>
 
