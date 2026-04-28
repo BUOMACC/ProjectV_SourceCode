@@ -21,8 +21,8 @@
 > 3. [입력 처리](#input)  
 >   2.1 [플레이어 입력 프로세스](#input_01)  
 >   2.2 [선입력 처리](#input_02)  
-> 4. [위치 & 회전 동기화](#cmc_network)  
->   3.1 [멀티플레이 환경에서 발생한 위치보정 이슈 처리](#cmc_network_01)  
+> 4. [멀티 플레이 위치 & 회전 동기화](#cmc_network)  
+>   3.1 [위치보정 이슈 처리](#cmc_network_01)  
 > 5. [Lyra 컨텐츠 코드 활용 및 개선](#lyra)  
 >   4.1 [AbilitySet](#lyra_01)  
 >   4.2 [Inventory](#lyra_02)  
@@ -261,9 +261,9 @@ void UHealthAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute
 [목차로 이동](#table-contents)
 
 <a name="cmc_network"></a>
-## 3. 위치 & 회전 동기화
+## 3. 멀티 플레이 위치 & 회전 동기화
 <a name="cmc_network_01"></a>
-### 3.1 멀티플레이 환경에서 발생한 위치보정 이슈 처리
+### 3.1 위치보정 이슈 처리
 멀티플레이 환경을 고려하며 개발하며 `RootMotion`과 회전을 같이 사용하는 과정에서 캐릭터의 움직임이 버벅이는 보정 현상이 발생했습니다.  
 정상적인 범주의 핑(20ms)에서도 이런 현상이 발생했기 때문에 유저의 플레이 경험과 반응성 측면에서 개선하고자 했습니다.
 
